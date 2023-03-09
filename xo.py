@@ -27,8 +27,6 @@ def check_input(user_input):
         input_int = int(user_input)
     except ValueError:
         print("Ups, krivi unos.")
-    except IndexError:
-        print("Ups, unos mora biti između 1 i 9.")
     else:
         if input_int in current_status:
             if is_x_turn:
@@ -36,6 +34,8 @@ def check_input(user_input):
             else:
                 current_status[input_int-1] = "O"
             is_x_turn = not is_x_turn
+        elif input_int > 9 or input_int < 1:
+            print(f"Izbor mora biti izmedju 1 i 9")
         else:
             print(f"Pozicija {input_int} vec zauzeta.")
 
